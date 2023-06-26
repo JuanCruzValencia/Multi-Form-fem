@@ -2,12 +2,13 @@ import { ChangeEvent } from "react";
 
 type Props = {
   htmlFor?: string;
-  label: string;
+  label?: string;
   type: string;
   placeholder?: string;
   name: string;
   styles: string;
   error?: boolean;
+  ariaLabel?: string;
   handleChange?: (e: ChangeEvent<HTMLInputElement>) => void;
 };
 
@@ -20,6 +21,7 @@ const Input: React.FC<Props> = ({
   styles,
   error,
   handleChange,
+  ariaLabel,
 }) => {
   return (
     <>
@@ -30,6 +32,7 @@ const Input: React.FC<Props> = ({
         name={name}
         className={styles}
         onChange={handleChange}
+        aria-label={ariaLabel}
       />
       {error && "This field is required"}
     </>
