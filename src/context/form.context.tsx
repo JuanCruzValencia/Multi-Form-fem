@@ -8,7 +8,9 @@ type Props = {
 export const FormContext = createContext({} as IFormContextProps);
 
 const FormContextProvider: React.FC<Props> = ({ children }) => {
-  const data = {};
+  const data = {
+    context: "",
+  };
 
   return <FormContext.Provider value={data}>{children}</FormContext.Provider>;
 };

@@ -20,7 +20,7 @@ const useForm = ({ initialValue }: Props) => {
     });
   };
 
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const handleSubmitStepOne = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     if (
@@ -34,17 +34,7 @@ const useForm = ({ initialValue }: Props) => {
     console.log(form);
   };
 
-  const handleStepOne = () => {
-    if (
-      form.fullName.trim() === "" ||
-      form.email.trim() === "" ||
-      form.phone.trim() === ""
-    ) {
-      setErrors(true);
-    }
-  };
-
-  return { handleFormChange, handleSubmit, errors, handleStepOne };
+  return { handleFormChange, handleSubmitStepOne, errors };
 };
 
 export default useForm;
