@@ -1,20 +1,26 @@
-import { PLANS } from "../../types/interfaces";
+import { PLANS, plans } from "../../types/interfaces";
+import PlanCard from "./PlanCard";
 
 type Props = {
   currentValue: PLANS;
-  selectValue: (plan: PLANS) => void;
+  selectValue: (plan: string) => void;
 };
 
 const MultiSelectComponent: React.FC<Props> = ({
   currentValue,
   selectValue,
 }) => {
-  const plans = Object.keys(PLANS).map((value) => PLANS[value]);
-
   return (
     <>
       {plans.map((plan) => {
-        return <PlanCard text={plan} />;
+        return (
+          <PlanCard
+            crrentValue={currentValue}
+            plan={plan}
+            selectPlan={selectValue}
+            key={plan.plan}
+          />
+        );
       })}
     </>
   );

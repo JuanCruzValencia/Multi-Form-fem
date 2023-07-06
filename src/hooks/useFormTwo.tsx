@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { IStepTwo } from "../types/interfaces";
+import { FormEvent, useState } from "react";
+import { IStepTwo, PLANS, plans } from "../types/interfaces";
 
 type Props = {
   initialValue: IStepTwo;
@@ -7,13 +7,30 @@ type Props = {
 
 const useFormTwo = ({ initialValue }: Props) => {
   const [form, setForm] = useState<IStepTwo>({ ...initialValue });
+  const [plan, setPlan] = useState<PLANS>();
   const [errors, setErrors] = useState<boolean>(false);
 
-  const handleSelect = () => {};
+  const handleSelect = (plan: PLANS) => {
+    setPlan(plan);
 
-  const handleStepTwoSubmit = () => {};
+    const findPlan = plans.find((p) => p.plan === plan);
 
-  return { handleSelect, handleStepTwoSubmit, errors };
+    if (findPlan) {
+      setForm((prevState) => {
+        return { ...prevState, plan };
+      });
+    }
+  };
+
+  const handleStepTwoSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    if (form === undefined) {
+      setErrors(true);
+    }
+  };
+
+  return { handleSelect, handleStepTwoSubmit, errors, plan };
 };
 
 export default useFormTwo;
