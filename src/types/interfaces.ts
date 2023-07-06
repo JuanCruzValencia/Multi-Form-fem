@@ -15,12 +15,6 @@ export enum PLANS {
   PRO = "PRO",
 }
 
-export const plans = [
-  { plan: PLANS.ARCADE, price: 8 },
-  { plan: PLANS.ADVANCED, price: 10 },
-  { plan: PLANS.PRO, price: 12 },
-];
-
 export enum BILLS {
   MONTHLY = "MONTHLY",
   YEARLY = "YEARLY",

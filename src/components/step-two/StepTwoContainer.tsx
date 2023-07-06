@@ -1,16 +1,20 @@
+import useFormTwo from "../../hooks/useFormTwo";
+import MultiSelectComponent from "./MultiSelectComponent";
+import ToggleBtn from "./ToggleBtn";
+
 const StepTwoContainer = () => {
+  const { handleSelect, plan } = useFormTwo();
   return (
     <>
       <h2>select your plan</h2>
       <span>You have the option of mothly or yealy billing.</span>
       {/* SELECT BUTTONS */}
-      <div className=""></div>
+      <div className="">
+        <MultiSelectComponent currentValue={plan} selectValue={handleSelect} />
+      </div>
       {/* TOGGLE BUTTON */}
-      <div className="form-control">
-        <label className="label cursor-pointer">
-          <span className="label-text">Remember me</span>
-          <input type="checkbox" className="toggle" checked />
-        </label>
+      <div className="">
+        <ToggleBtn />
       </div>
     </>
   );
