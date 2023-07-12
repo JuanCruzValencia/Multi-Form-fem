@@ -10,12 +10,12 @@ const PlanCard: React.FC<Props> = ({ crrentValue, plan, selectPlan }) => {
   return (
     <>
       <div
-        className={crrentValue === plan.plan ? "" : ""}
+        className={crrentValue === plan.plan ? "border-2" : "border-none"}
         onClick={() => selectPlan(plan.plan)}
       >
         <div>ICON</div>
         <div>
-          <h4>{plan.plan}</h4>
+          <h4 className="">{plan.plan}</h4>
           <span>${plan.price}/mo</span>
         </div>
       </div>

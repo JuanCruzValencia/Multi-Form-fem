@@ -3,19 +3,18 @@ import MultiSelectComponent from "./MultiSelectComponent";
 import ToggleBtn from "./ToggleBtn";
 
 const StepTwoContainer = () => {
-  const { handleSelect, plan } = useFormTwo();
+  const { handleSelect, plan, handleStepTwoSubmit } = useFormTwo();
   return (
     <>
       <h2>select your plan</h2>
       <span>You have the option of mothly or yealy billing.</span>
       {/* SELECT BUTTONS */}
-      <div className="">
+      <form className="" onSubmit={handleStepTwoSubmit}>
         <MultiSelectComponent currentValue={plan} selectValue={handleSelect} />
-      </div>
-      {/* TOGGLE BUTTON */}
-      <div className="">
+        {/* TOGGLE BUTTON */}
         <ToggleBtn />
-      </div>
+        <button type="submit">submit</button>
+      </form>
     </>
   );
 };

@@ -8,13 +8,16 @@ const StepOneForm: React.FC = () => {
     phone: "",
   };
 
-  const { handleFormChange, errors } = useForm({ initialValue });
+  const { handleFormChange, errors, handleSubmitStepOne } = useForm({
+    initialValue,
+  });
+
   return (
     <>
-      <form className="flex flex-col">
+      <form className="flex flex-col" onSubmit={(e) => handleSubmitStepOne(e)}>
         <Input
           label="Name"
-          name="firstName"
+          name="fullName"
           type="text"
           error={errors}
           handleChange={handleFormChange}
@@ -39,6 +42,8 @@ const StepOneForm: React.FC = () => {
           placeholder="e.g. +1 234 567890"
           styles=""
         />
+        {/* THIS BUTTON SHOULD BE NEXT STEP */}
+        <button type="submit">Submit</button> 
       </form>
     </>
   );
